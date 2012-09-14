@@ -1,0 +1,15 @@
+.idea/*
+
+*.swp
+
+#python
+*.py[cod]
+*.so
+*.egg-info
+*.egg
+*.mo
+**/dist
+**/build
+**/eggs
+**/pip-log.txt
+**/.installed-c
