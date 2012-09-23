@@ -1,3 +1,5 @@
+import datetime
+
 class Event(object):
     _callbacks = {}
 
@@ -52,7 +54,13 @@ class Model(Event):
         changes = {}
         for key in iter(attrs):
             value = attrs[key]
-            if key not in self.attributes or value != self.get(key):
+            #todo: this error TypeError: can't compare offset-naive and offset-aware datetimes
+            if isinstance(value, datetime.datetime):
+                changes[key] = value
+                self.attributes[key] = value
+                if not options.get("silent"):
+                    self.trigger("change:"+key, self, value)
+            elif key not in self.attributes or value != self.get(key):
                 changes[key] = value
                 self.attributes[key] = value
                 if not options.get("silent"):

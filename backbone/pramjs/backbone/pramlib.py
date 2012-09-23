@@ -10,7 +10,7 @@ class PrambananLibrary(BasePrambananLibrary):
     def __init__(self, *args):
         super(PrambananLibrary, self).__init__(*args)
         modules = [
-            JavascriptModule([join(src_dir, "pramjs.backbone.js")], "pramjs.backbone"),
+            JavascriptModule([join(src_dir, "pramjs.backbone.js")], "pramjs.backbone", ["pramjs.elquery"]),
         ]
         self.modules = modules
 
