@@ -1,6 +1,8 @@
+import borobudur
+
 class FileUploader:
-    def __init__(self, element, action, debug):
-        raise ValueError("only in js")
+    def __init__(self, options):
+        pass
 
 def getUniqueId():
     raise ValueError("only in js")

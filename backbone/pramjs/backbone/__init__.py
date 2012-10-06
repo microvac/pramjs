@@ -1,7 +1,9 @@
 import datetime
 
 class Event(object):
-    _callbacks = {}
+
+    def __init__(self):
+        self._callbacks = {}
 
     def on(self, name, callback):
         if not name in self._callbacks:
@@ -30,10 +32,11 @@ class Model(Event):
     idAttribute = "id"
 
     def __init__(self, attributes=None, options=None):
+        super(Model, self).__init__()
         if attributes is None:
             attributes = {}
 
-        self.cid = ""
+        self.cid = None
         self.id = None
         self.attributes = {}
         self.set(attributes, {"silent":True})
@@ -114,6 +117,9 @@ class Collection(Event):
     model = Model
 
     def __init__(self, models=None, options=None):
+        super(Collection, self).__init__()
+
+        self.cid = None
         if options is None:
             options = {}
 

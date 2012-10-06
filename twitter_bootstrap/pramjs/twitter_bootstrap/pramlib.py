@@ -9,6 +9,7 @@ js_dir =  join(src_dir, "js")
 class PrambananLibrary(BasePrambananLibrary):
 
     def __init__(self, *args):
+        import datetime
         super(PrambananLibrary, self).__init__(*args)
         modules = [
             PythonModule(join(src_dir, "modal.py"), "pramjs.twitter_bootstrap.modal", self.import_cache, [join(js_dir, "bootstrap-modal.js"), join(src_dir, "bootstrap-modal-gallery.js")]),
