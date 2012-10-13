@@ -11,6 +11,8 @@ class Chain(object):
     def value(self):
         return self.val
 
+def bind(fn, obj):
+    return fn
 
 def chain(obj):
     return Chain(obj)

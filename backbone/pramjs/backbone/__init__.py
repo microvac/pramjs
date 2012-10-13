@@ -1,8 +1,11 @@
 import datetime
 
-class Event(object):
+class Events(object):
 
     def __init__(self):
+        self._callbacks = {}
+
+    def clear(self):
         self._callbacks = {}
 
     def on(self, name, callback):
@@ -26,7 +29,7 @@ class Event(object):
                 callbacks(*args)
         return self
 
-class Model(Event):
+class Model(Events):
     """
     """
     idAttribute = "id"
@@ -112,7 +115,7 @@ class Model(Event):
 
         return other_attrs == self.attributes
 
-class Collection(Event):
+class Collection(Events):
 
     model = Model
 
